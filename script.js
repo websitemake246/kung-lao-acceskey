@@ -25,7 +25,7 @@ checkBtn.addEventListener('click', async () => {
   checkBtn.textContent = 'Checking...';
 
   try {
-    const res = await fetch(`https://your-api-url.com/check-user/${username}`);
+    const res = await fetch(`https://kung-lao-acceskey.vercel.app/check-user/${username}`);
     const data = await res.json();
 
     if (data.success) {
