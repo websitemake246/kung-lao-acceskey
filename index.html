@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kng lao md access key</title>
+  <title>Kung lao md accesskey</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <h1>K.L Access key</h1>
+    <h1>K.L access key</h1>
     <div class="logo-container">
       <img src="https://files.catbox.moe/uqn9cu.jpg" alt="Logo" class="logo" />
       <button id="toggleTheme" class="btn-toggle">🌙</button>
@@ -17,28 +17,45 @@
 
   <main class="main">
     <section class="instructions">
-      <h2>🚀 Join All Required Channels</h2>
-      <p>You must join all the official Telegram channels below to receive your passcode.</p>
-      <ul class="channel-links">
-        <li><a href="https://t.me/Kingkhalidlovesmoney" target="_blank">📢 Channel 1</a></li>
-        <li><a href="https://t.me/Kingkhalidlovesmoney" target="_blank">📢 Channel 2</a></li>
-        <li><a href="https://t.me/Kingkhalidlovesmoney" target="_blank">👉 Channel 3</a></li>
-      </ul>
-      <input type="text" id="telegramUsername" placeholder="Enter your Telegram username (without @)" />
+      <h2>🚀 Get Your Passcode</h2>
+      <p>Please make sure you've joined all required Telegram channels before proceeding.</p>
+      <input type="text" id="telegramUsername" placeholder="Enter your Telegram username (optional)" />
       <button id="checkBtn" class="btn-primary">✅ I've Joined All</button>
     </section>
 
     <section class="result" id="resultBox" style="display:none">
-      <h3>🎉 You’ve been verified!</h3>
-      <p>Your passcode:</p>
+      <h3>🎉 Here is your passcode!</h3>
+      <p>Use this code as instructed:</p>
       <div id="passcode" class="passcode">Loading...</div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 King. All rights reserved.</p>
+    <p>&copy; 2025 (◍•ᴗ•◍) ミ❣️ ᴷⁱⁿᵍ ᵏʰᵃˡⁱᵈ ❣️彡. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const themeBtn = document.getElementById('toggleTheme');
+    const saved = localStorage.getItem('theme') || 'light';
+    const setTheme = (mode) => {
+      document.body.classList.toggle('dark', mode === 'dark');
+      themeBtn.textContent = mode === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('theme', mode);
+    };
+    setTheme(saved);
+    themeBtn.onclick = () => setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
+
+    const checkBtn = document.getElementById('checkBtn');
+    const resultBox = document.getElementById('resultBox');
+    const passcodeDiv = document.getElementById('passcode');
+    const passcodes = [
+      '2790427374', '37363738374', '3179536296', '635464747392', '1234567890', '9876543210'
+    ];
+    checkBtn.addEventListener('click', () => {
+      const code = passcodes[Math.floor(Math.random() * passcodes.length)];
+      passcodeDiv.textContent = code;
+      resultBox.style.display = 'block';
+    });
+  </script>
 </body>
 </html>
